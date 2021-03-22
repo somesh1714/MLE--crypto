@@ -1,0 +1,127 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Login</title>
+  </head>
+  <body>
+
+	<div class=" text-uppercase border-danger" style="font-size: 32px; color: white; text-align: center;">
+		<div class="shadow p-4 my-1 bg-dark rounded "> Message Lock Encryption and secure deduplication</div>
+	
+		</div>
+
+	<div>
+        {% for message in messages %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-bottom: 0;">
+             {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endfor %}
+    </div>
+    
+	<div class="container my-5 bg-light">
+		<h2 class="title mb-4">Login Form</h2>
+		<form method="POST">
+			{% csrf_token %}
+			<div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationTooltipUsername">Username</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                      </div>
+                      <input type="text" class="form-control" id="validationTooltipUsername" name="username" placeholder="Username" value="" required>
+                      <div class="invalid-tooltip">
+                        Please choose a unique and valid username.
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+			<div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <label for="validationTooltip01">Password</label>
+                  <input type="text" class="form-control" id="validationTooltip01" placeholder="Password" name="password" value="" required>
+                  <div class="valid-tooltip">
+                    Looks good!
+                  </div>
+                </div>
+                
+              </div>
+
+			  <button class="btn btn-primary" type="submit">Click here to Submit </button>
+
+			  <div class="w-full text-center mt-5 p-t-55">
+				<span class="txt2">
+					Not a member?
+				</span>
+
+				<a href=" {% url 'users-register' %}" class="txt2 bo1">
+					Sign up now
+				</a>
+			</div>
+		  </form>
+
+	</div>
+	<footer class="bg-dark text-center text-white">
+		<!-- Grid container -->
+		<div class="container p-4">
+		  <!-- Section: Social media -->
+		  <section class="mb-4">
+			<!-- Facebook -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+			  ><i class="fa fa-facebook-f"></i
+			></a>
+	  
+			<!-- Twitter -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+			  ><i class="fa fa-twitter"></i
+			></a>
+	  
+			<!-- Google -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+			  ><i class="fa fa-google"></i
+			></a>
+	  
+			<!-- Instagram -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+			  ><i class="fa fa-instagram"></i
+			></a>
+	  
+			<!-- Github -->
+			<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+			  ><i class="fa fa-github"></i
+			></a>
+		  </section>
+		  <!-- Section: Social media -->
+	  
+		  
+		  <!-- Section: Text -->
+		  <section class="mb-4">
+			<p>
+				We introduce an intriguing new primitive that we call Message-Locked Encryption (MLE). An MLE scheme is a symmetric encryption scheme in which the
+				key used for encryption and decryption is itself derived from the message.
+			</p>
+		  </section>
+		  <!-- Section: Text -->
+		
+	  </footer>
+	  <!-- Footer -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
